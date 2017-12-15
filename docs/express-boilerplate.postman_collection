@@ -1,0 +1,109 @@
+{
+	"variables": [],
+	"info": {
+		"name": "express-boilerplate",
+		"_postman_id": "1dc73d14-2f85-a56a-63b4-e797060c1591",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "User | Register",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var token = postman.getResponseHeader('x-sh-auth');",
+							"postman.setEnvironmentVariable('x-sh-auth', token);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://{{host}}/user/register",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"m.naveed.ch@gmail.com\",\n\t\"password\": \"pass123\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "User | Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"var token = postman.getResponseHeader('x-sh-auth');",
+							"postman.setEnvironmentVariable('x-sh-auth', token);"
+						]
+					}
+				}
+			],
+			"request": {
+				"url": "http://{{host}}/user/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"email\": \"m.naveed.ch@gmail.com\",\n\t\"password\": \"pass123\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "User | Profile",
+			"request": {
+				"url": "http://{{host}}/user/profile",
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-sh-auth",
+						"value": "{{x-sh-auth}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "User | Logout",
+			"request": {
+				"url": "http://{{host}}/user/logout",
+				"method": "GET",
+				"header": [
+					{
+						"key": "x-sh-auth",
+						"value": "{{x-sh-auth}}",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
